@@ -37,3 +37,14 @@ ul {
 a {
     color: white;
 }
+#map {
+    padding: 10px;
+    height: 400px;
+    width: 200px;
+  }
+/* Optional: Makes the sample page fill the window. 
+html, body {
+height: 100% !important;
+margin: 0;
+padding: 0;
+}*/

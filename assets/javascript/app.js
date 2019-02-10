@@ -18,8 +18,17 @@ $(document).ready(function() {
         url: baseUrl,
         method: "GET",
       }).then(function(res){
-        console.log(res);
-        var itemTitle = res.items[0].title;
+        $('.offers').text("");
+        
+        for (let i = 0; i < res.items[0].offers.length; i++) {
+          var a =res.items[0].offers[i].link
+          $('.offers').prepend("<li><a href="+a+ " target='_blank'>"+res.items[0].offers[i].merchant + res.items[0].offers[i].price+"</a></li>");  
+          console.log(a);
+         
+        }
+       
+        // $('.offers').prepend("<li><a href='#' target='blank'>"+upc+': '+res.items[0].offers[0].merchant + res.items[0].offers[0].price+"</a></li>");
+        
         console.log("res", res.items[0].offers[0].title);
         $('#history').prepend("<li><a href='#' target='blank'>"+upc+': '+res.items[0].offers[0].title+"</a></li>");
         setTimeout(function(){document.getElementById("iBar").value=""}, 1000);

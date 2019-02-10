@@ -21,6 +21,12 @@ body{
     background-color: grey;
     color: white;
 }
+.offers{
+    color: white;
+    position: relative;
+    left: 50px;
+    top: 80px; 
+}
 .history{
     color: white;
     position: relative;
@@ -39,8 +45,8 @@ a {
 }
 #map {
     padding: 10px;
-    height: 400px;
-    width: 200px;
+    height: 200px;
+    width: 100px;
   }
 /* Optional: Makes the sample page fill the window. 
 html, body {

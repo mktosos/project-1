@@ -1,8 +1,10 @@
 # project-1
 
-This project allows a user to search by product UPC to find pricing across various online marketplaces. The app primarily uses a barcode scanner (and eventually the phone camera) to input UPC numbers. The API from UPCitemdb.com gives the item and marketplace data. Google maps api is also used to determine present location, which will give the user a location data point for each UPC scan. This feature will be handy in automatically recording where a specific item was scanned in store.
+This project allows a user to search by product UPC to find pricing across various online marketplaces. The app primarily uses a barcode scanner (and eventually the phone camera) to input UPC numbers. The API from UPCitemdb.com gives the item and marketplace data. Google maps API is also used to determine present location, which will give the user a location data point for each UPC scan. This feature will be handy in automatically recording where a specific item was scanned in store, when monitoring instore price drops and availability.
 
-The project originally was to be based around retailer APIs, target, walmart, amazon. Thoses specific APIs were not accessible for this student project, so scraping those sites was looked into. The non-object formatted data was not useful so I am using an API for a UPC barcode database. The app functions as more of a consumer price checker, than a resellers tool, in this 1st iteration.
+Firebase is used to record scan instances and location.
+
+The project originally was to be based around retailer APIs, target, walmart, amazon as a seller tool. Thoses specific APIs were not accessible for this student project, so scraping those sites was looked into. The non-object formatted data was not useful so I am using an API for a UPC barcode database. The app functions as more of a consumer price checker, than a resellers tool, in this 1st iteration.
 
 
 Credits The game project student developer is Mike Taniguchi.

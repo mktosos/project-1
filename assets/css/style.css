@@ -55,3 +55,8 @@ a {
 .offers{
     overflow: scroll;
 }
+canvas.drawing, canvas.drawingBuffer {
+    position: absolute;
+    left: 0;
+    top: 500px;
+}

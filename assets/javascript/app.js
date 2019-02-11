@@ -10,8 +10,8 @@ $(document).ready(function() {
         text = "Input not valid";
         console.log("not valid");
         document.getElementById("iBar").value=""
-        document.getElementById("iBar").value="Not a 12-digit UPC code...try again"
-        setTimeout(function(){document.getElementById("iBar").value=""}, 1000);
+        document.getElementById("iBar").value="Requires a 12-digit UPC code...try again"
+        setTimeout(function(){document.getElementById("iBar").value=""}, 1750);
       } else {
         
       
@@ -42,6 +42,25 @@ $(document).ready(function() {
         }
         console.log(session);
         console.log(pos);
+
+        Quagga.init({
+    inputStream : {
+        name : "Live",
+        type : "LiveStream",
+         // Or '#yourElement' (optional)
+        target: document.querySelector('#yourElement') 
+    },
+    decoder : {
+        readers : ["upc_reader"]
+    }
+}, function(err) {
+    if (err) {
+        console.log(err);
+        return
+    }
+    console.log("Initialization finished. Ready to start");
+    Quagga.start();
+});
       } 
     };
   });

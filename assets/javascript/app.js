@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  alert = function() {};
   var session =[];
   var input = document.getElementById("iBar");
   

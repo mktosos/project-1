@@ -24,6 +24,7 @@
 <body>
     <!-- Div to show the scanner -->
     <div id="scanner-container"></div>
+    <div id="vid"><video playsinline autoplay></video></div>
     <input type="button" id="btn" value="Start/Stop the scanner" />
 
     <div class="container-fluid">
@@ -71,7 +72,6 @@
                 },
                 decoder: {
                     readers: [
-                       
                         "upc_reader"
                        
                     ],
@@ -131,6 +131,7 @@
 
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+                $('#iBar').val(result.codeResult.code);
             });
         }
 

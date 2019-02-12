@@ -5,10 +5,10 @@
     width: 90%;
 }
 body{
-    background-color: gray;
-    }
+    background-color: white;
+}
 .textBar{
-    background-color:#9ab;
+    background-color:#8d8980;
     color: white;
     width: 12%;
     overflow: hidden;
@@ -35,7 +35,7 @@ ul {
     position: relative;
     left: -15px;
     top: -5px;
-  }
+}
 li{
     font-size: 18px;
     text-align: left;
@@ -48,7 +48,7 @@ a {
     width: 100%;
     grid-column: 8 / 12;  
     grid-row: 1 / 5;
-  }
+}
 .offers{
     overflow: scroll;
 }
@@ -59,64 +59,75 @@ canvas.drawing, canvas.drawingBuffer {
 }
 html {
     box-sizing: border-box;
-  }
-  *, *:before, *:after {
+}
+*, *:before, *:after {
     box-sizing: inherit;
-  }
-  
-  body {
+}
+body {
     margin: 40px;
-  }
-  
-  .wrapper {
-    
+}
+.wrapper {
     width: 100%;
     height: 100%;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(11, 9%);
-    grid-template-rows: repeat(11, 100px);
+    grid-template-rows: repeat(5, 110px);
     justify-content: center;
     align-content: end;
     padding: 20px;
-  }
-  
-  .box {
+}
+.box {
     background-color: #444;
     color: #fff;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
-  }
-  
-  .item1 {
+}
+.item1 {
     grid-column: 1 / 8;
     grid-row: 1 / 6;
-  }
-  
-  .item2 {
+    opacity: .75;
+}
+.item1a{
+    grid-column: 1 / 8;
+    grid-row: 1 / 6;
+    z-index: -1;
+    background-image: url( ../images/IMG_5571.JPG);
+    background-size: 100%;
+    opacity: 1;
+}
+.item2 {
     grid-row: 6 / 7;
     grid-column: 1 / 9;
-  }
-  
-  .item3 {
+}
+
+.item3 {
     grid-column: 8 / 9;
-  }
-  .item4 {
+}
+.item4 {
     grid-column: 8 / 12;  
     grid-row: 1 / 5;
     padding: 0;
-  }
-  .item5 {
-    grid-column: 9 / 12;  
-    grid-row: 5 / 7;
     overflow: scroll;
     align-content: center;
-    background-color:lightslategray
-  }
- #iBar {
-     width: 80%;
-  }
-  .textBar{
-      font-size: 22px;
-  }
+    background-color:lightslategray;
+}
+.item5 {
+    grid-column: 9 / 12;  
+    grid-row: 5 / 7;
+    padding: 0;
+}
+#iBar {
+    width: 80%;
+}  
+.textBar{
+    font-size: 22px;
+}
+.startText{
+    position: relative;
+    left: 40px;
+    top: 30px;
+    color: white;
+    opacity: 1;
+}

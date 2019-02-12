@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project-1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     
@@ -17,30 +18,34 @@
     
     <!-- Div to show the scanner -->
     <div id="scanner-container"></div>
-    
+    <!--divs for grid layouy-->
     <div class="wrapper">
-            <div class="box item1">
-                <div class="offers"></div>
-            </div>
-            <div class="item2"><div class="input-group-prepend input-group input-group-lg">
-                <input type="text" id = "iBar" class="form-control inputBar" aria-label="Large" aria-describedby="inputGroup-sizing-default"><span class="input-group-text inputBar textBar" id="inputGroup-sizing-lg">UPC</span></div>
-            </div>
-            <div class="box item3">
-                <input type="button" id="btn" value="@" />
-                
-            </div>
-            <div class="box item4">
-                <div id="map"></div>
-            </div>
-            <div class="box item5">
-                <ul id="history"></ul>  
-            </div>
+        <div class="box item1">
+            <div class ="startText">Search for product prices online by UPC code</div>
+            <div class ="startText">Input manually or with usb scanner</div>
+            <div class ="startText">Try using your device camera</div>
+            <div class="offers"></div>
+        </div>
+        <div class="item1a"></div>
+        <div class="item2"><div class="input-group-prepend input-group input-group-lg">
+            <input type="text" id = "iBar" class="form-control inputBar" aria-label="Large" aria-describedby="inputGroup-sizing-default"><span class="input-group-text inputBar textBar" id="inputGroup-sizing-lg">UPC</span></div>
+        </div>
+        <div class="box item3">
+            <input type="button" id="btn" value="&#xe046;" />
+            <span class="glyphicon">&#xe046;</span>
+        </div>
+        <div class="box item5">
+            <div id="map"></div>
+        </div>
+        <div class="box item4">
+            <ul id="history"></ul>  
+        </div>
     </div>
     <div class ="images"></div>
     
     <!-- Include the image-diff library -->
     <script src="assets/javascript/quagga.min.js"></script>
-
+    <!--guagga scanner script-->
     <script>
         var _scannerIsRunning = false;
 
@@ -113,15 +118,11 @@
                     }
                 }
             });
-
-
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
                 $('#iBar').val(result.codeResult.code);
             });
         }
-
-
         // Start/stop scanner
         document.getElementById("btn").addEventListener("click", function () {
             if (_scannerIsRunning) {

@@ -1,6 +1,6 @@
 # project-1
 
-This project allows a user to search by product UPC to find pricing across various online marketplaces. The app primarily uses a barcode scanner (and eventually the phone camera) to input UPC numbers. The API from UPCitemdb.com gives the item and marketplace data. Google maps API is also used to determine present location, which will give the user a location data point for each UPC scan. This feature will be handy in automatically recording where a specific item was scanned in store, when monitoring instore price drops and availability. A user validation function checks for correct UPC formatted numbers. 
+This project allows a user to search by product UPC to find pricing across various online marketplaces. The app can use usb a barcode scanner, keyboard input or the phone camera to input UPC numbers. The API from UPCitemdb.com enbles the item and marketplace data. Google maps API is also used to determine present location, which will give the user a location data point for each UPC scan. This feature will be handy in automatically recording where a specific item was scanned in store, when monitoring instore price drops and availability. A user validation function checks for correct UPC formatted numbers. 
 
 Firebase is used to record scan instances and location.
 

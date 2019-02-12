@@ -1,4 +1,17 @@
 $(document).ready(function() {
+  // Initialize Firebase
+  var config = {
+      apiKey: "AIzaSyAQ6ws1ASiLTtTk0u9f0K_yL03c-7xDni0",
+      authDomain: "project-1-1549742048716.firebaseapp.com",
+      databaseURL: "https://project-1-1549742048716.firebaseio.com",
+      projectId: "project-1-1549742048716",
+      storageBucket: "",
+      messagingSenderId: "1001407996252"
+  };
+  firebase.initializeApp(config);
+  // database reference
+  var database = firebase.database();
+
   var session =[];
   var input = document.getElementById("iBar");
   
@@ -12,8 +25,6 @@ $(document).ready(function() {
         document.getElementById("iBar").value="Requires a 12-digit UPC code...try again"
         setTimeout(function(){document.getElementById("iBar").value=""}, 1750);
       } else {
-        
-      
         console.log(event.keyCode);
         var upc = document.getElementById("iBar").value;
         session.unshift(upc);

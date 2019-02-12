@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  alert = function() {};
   var session =[];
   var input = document.getElementById("iBar");
   
@@ -36,7 +35,7 @@ $(document).ready(function() {
               $('.images').prepend("<img src="+res.items[0].images[i]+" height='80' <a href="+a+ " target='_blank'>"+"</a>"); 
             }
             console.log("res", res.items[0].offers[0].title);
-            $('#history').prepend("<li><a href='#' target='blank'>"+upc+': '+res.items[0].offers[0].title+"</a></li>");
+            $('#history').prepend("<li class='history'><a href='#' target='blank'>"+upc+': '+res.items[0].offers[0].title+"</a></li>");
             setTimeout(function(){document.getElementById("iBar").value=""}, 1000);
             });
         }

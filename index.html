@@ -9,15 +9,11 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" src="./assets/javascript/jquery.ajax-cross-origin.min.js"></script>
 </head>
 <body>
-    
-    <!-- Div to show the scanner -->
-    <div id="scanner-container"></div>
     <!--divs for grid layouy-->
     <div class="wrapper">
         <div class="box item1">
@@ -25,10 +21,13 @@
             <div class ="startText">Input manually or with usb scanner</div>
             <div class ="startText">Try using your device camera</div>
             <div class="offers"></div>
+            
         </div>
         <div class="item1a"></div>
-        <div class="item2"><div class="input-group-prepend input-group input-group-lg">
-            <input type="text" id = "iBar" class="form-control inputBar" aria-label="Large" aria-describedby="inputGroup-sizing-default"><span class="input-group-text inputBar textBar" id="inputGroup-sizing-lg">UPC</span></div>
+        <div class="item2">
+            <div class="input-group-prepend input-group input-group-lg">
+                <span class="input-group-text inputBar textBar" id="inputGroup-sizing-lg">UPC-A</span><input type="text" id = "iBar" class="form-control inputBar" aria-label="Large" aria-describedby="inputGroup-sizing-default"></div>
+            <div class ="images"></div> 
         </div>
         <div class="box item3">
             <input type="button" id="btn" value="&#xe046;" />
@@ -38,10 +37,15 @@
             <div id="map"></div>
         </div>
         <div class="box item4">
-            <ul id="history"></ul>  
+            <div id="upc"></div>
+            <div id="title"></div>
+            <div id="location"></div>
+            <ul id="history"></ul> 
+             <!-- Div to show the scanner -->
+            <div id="scanner-container"></div>
         </div>
     </div>
-    <div class ="images"></div>
+    
     
     <!-- Include the image-diff library -->
     <script src="assets/javascript/quagga.min.js"></script>
@@ -127,7 +131,12 @@
         document.getElementById("btn").addEventListener("click", function () {
             if (_scannerIsRunning) {
                 Quagga.stop();
+                $('video').hide();
+                $('canvas').hide();
+
             } else {
+                $('video').show();
+                $('canvas').show();
                 startScanner();
             }
         }, false);

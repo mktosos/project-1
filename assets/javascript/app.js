@@ -12,18 +12,30 @@ $(document).ready(function() {
   // database reference
   var database = firebase.database();
 
+
   //grab data from database on value change or on page start to display
-  database.ref().on('value',function(snapshot) {
+  database.ref().on('child_added',function(snapshot) {
+    console.log(snapshot.val());
     //jqeury the values as text to ID div
-    $('#title').text(snapshot.val().title);
-    $('#location').text(snapshot.val().location);
-    $('#upc').text(snapshot.val().upc);
+    var $item = $('<div>');
+    $item.append('<div>' + snapshot.val().location.lat + '</div>');
+
+    $('#history').append($item);
+    // $('#title').text(snapshot.val().title);
+    // $('#location').text(snapshot.val().location.lat);
+    // $('#upc').text(snapshot.val().upc);
     
     }, function(errorObject) {
 
     // In case of error this will print the error
     console.log("The read failed: " + errorObject.code);
   });
+  //push ajax resultObj to firebase
+  setTimeout(function(){ database.ref().push({
+    //resultObj:res,
+    location: pos
+  }); }, 5000);
+  
   //search history array
   var session =[];
   var input = document.getElementById("iBar");
@@ -63,6 +75,7 @@ function doSomething(value, session){
           }).then(function(res){
             $('.offers').text("");
             console.log(res);
+            
             //clear start screen populate offers with store/link and product images
             for (let i = 0; i < res.items[0].offers.length; i++) {
               var a =res.items[0].offers[i].link

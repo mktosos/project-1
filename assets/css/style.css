@@ -1,12 +1,13 @@
-.bar{
-    position: relative;
-    top: 85px;
-    margin: 30px;
-    width: 90%;
+html{
+    height: 800px;
 }
 body{
     background-color: white;
 }
+#iBar {
+    border: 2px solid grey;
+    border-radius: 7px;
+} 
 .textBar{
     background-color:lightslategray;
     color: white;
@@ -14,6 +15,7 @@ body{
     overflow: hidden;
     font-size: 22px;
     align-content: center;
+    border-radius: 7px;
 }
 .offers {
     color: white;
@@ -57,6 +59,7 @@ a {
     width: 100%;
     grid-column: 8 / 12;  
     grid-row: 1 / 5;
+    border-radius: 7px;
 }
 .offers{
     overflow: scroll;
@@ -73,7 +76,10 @@ html {
     box-sizing: inherit;
 }
 body {
-    margin: 40px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 .wrapper {
     width: 100%;
@@ -81,7 +87,7 @@ body {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(11, 9%);
-    grid-template-rows: repeat(6, 110px);
+    grid-template-rows: repeat(6, 117px);
     justify-content: center;
     align-content: end;
     padding: 20px;
@@ -89,7 +95,7 @@ body {
 .box {
     background-color: #444;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 20px;
     font-size: 150%;
 }
@@ -107,6 +113,7 @@ body {
     background-image: url( ../images/IMG_5571.JPG);
     background-size: 100%;
     opacity: 1;
+    border-radius: 5px;
 }
 .item2 {
     position: relative;
@@ -132,18 +139,26 @@ body {
     grid-column: 9 / 12;  
     grid-row: 5 / 7;
     padding: 0;
-}
-#iBar {
-    width: 80%;
-}  
+} 
 .startText{
     position: relative;
     left: 40px;
     top: 30px;
     color: white;
     opacity: 1;
+    width: 80%;
 }
 .input-group{
     position: absolute;
-    top: 60px;
+    top: 69px;
+}
+#btn{
+    background-image: url(../images/64x64.png);
+    width: 67px;
+    height:64px;
+    border-radius: 7px;
+    position: relative;
+    left: 30%;
+    bottom: 10%;
+    opacity: .75;
 }

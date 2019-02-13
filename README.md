@@ -3,6 +3,8 @@ This project allows a user to search by product UPC to find pricing across vario
 
 Firebase is used to record scan instances and location and functions as a "history" of scans.
 
+Known issues: Camera will not restart once its been opened and closed. App will need to be restarted.
+
 The project originally was to be based around retailer APIs from large retailers: target, walmart, and amazon, functioning as a seller tool. Thoses specific APIs were not accessible for this student project, so I looked into scraping those sites for data. The non-object formatted data was very tedious to parse so I am using an API for a UPC barcode database. The app functions as more of a consumer price checker, than a resellers tool, in this 1st iteration.
 
 The app initiates system file:/// alerts for googlemaps geolocation and use of the device's camera to scan barcodes. I know alerts are not allowed in this project, but these alerts are system security prompts, not coded and implemented by me.

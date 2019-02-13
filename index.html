@@ -17,16 +17,16 @@
     <!--divs for grid layouy-->
     <div class="wrapper">
         <div class="box item1">
-            <div class ="startText">Search for product prices online by UPC code</div>
-            <div class ="startText">Input manually or with usb scanner</div>
-            <div class ="startText">Try using your device camera</div>
+            <div id="startText1" class ="startText">Search for product pricing online by UPC code</div>
+            <div id="startText2" class ="startText">Input manually or with USB scanner</div>
+            <div id="startText3" class ="startText">Scan using your device camera</div>
             <div class="offers"></div>
             
         </div>
         <div class="item1a"></div>
         <div class="item2">
             <div class="input-group-prepend input-group input-group-lg">
-                <span class="input-group-text inputBar textBar" id="inputGroup-sizing-lg">UPC-A</span><input type="text" id = "iBar" class="form-control inputBar" aria-label="Large" aria-describedby="inputGroup-sizing-default"></div>
+                <span class="input-group-text inputBar textBar" id="inputGroup-sizing-lg">add UPC</span><input type="text" id = "iBar" class="form-control inputBar" aria-label="Large" aria-describedby="inputGroup-sizing-default"></div>
             <div class ="images"></div> 
         </div>
         <div class="box item3">
@@ -41,8 +41,8 @@
             <div id="title"></div>
             <div id="location"></div>
             <ul id="history"></ul> 
-             <!-- Div to show the scanner -->
             <div id="scanner-container"></div>
+            
         </div>
     </div>
     
@@ -122,9 +122,21 @@
                     }
                 }
             });
+
+            var timer;
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
                 $('#iBar').val(result.codeResult.code);
+
+                var e = $.Event( "keypress", { which: 13 } );
+                $('#iBar').trigger(e);
+
+                clearTimeout(timer);
+                timer = setTimeout(runSomething, 1000);
+
+                function runSomething() {
+                  doSomething(result.codeResult.code, []);
+                }
             });
         }
         // Start/stop scanner

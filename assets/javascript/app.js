@@ -24,29 +24,37 @@ $(document).ready(function() {
     // In case of error this will print the error
     console.log("The read failed: " + errorObject.code);
   });
-  //search history
+  //search history array
   var session =[];
   var input = document.getElementById("iBar");
   
   input.addEventListener("keyup", function(event) {
     event.preventDefault();
+
     //listens for return key
     if (event.keyCode === 13 && input.value!=="") {
+      doSomething(input.value, session);
+    };
+  });
+});
+
+function doSomething(value, session){
       //UPC code validation
-      if (isNaN(input.value) || input.value.length !=12) {
+      if (isNaN(value) || value.length !=12) {
         text = "Input not valid";
         console.log("not valid");
         document.getElementById("iBar").value=""
         document.getElementById("iBar").value="Requires a 12-digit UPC code...try again"
         setTimeout(function(){document.getElementById("iBar").value=""}, 1750);
       } else {
-        //push UPC search to history and add UPC to aja url to be called
-        console.log(event.keyCode);
+        //push UPC search to history and add UPC to ajax url to be called
+        //console.log(event.keyCode);
         var upc = document.getElementById("iBar").value;
         session.unshift(upc);
         var proxy = "https://cors-anywhere.herokuapp.com/";
         baseUrl = proxy + "https://api.upcitemdb.com/prod/trial/lookup?upc="+ upc;
         runAjax(baseUrl);
+
         //ajax function
         function runAjax(baseUrl){
           return $.ajax({
@@ -60,6 +68,8 @@ $(document).ready(function() {
               var a =res.items[0].offers[i].link
               if(res.items[0].images[i] !== undefined){
               $('.startText').text("");
+              $('#startText1').text(res.items[0].offers[0].title);
+              $('#startText2').text(upc);
               $('.offers').prepend("<li><a href="+a+ " target='_blank'>"+res.items[0].offers[i].merchant + res.items[0].offers[i].price+"</a></li>");  
               $('.images').prepend("<a href="+a+" target='_blank'><img src="+res.items[0].images[i]+" height='50' alt=''></a>"); 
               }
@@ -78,7 +88,7 @@ $(document).ready(function() {
     inputStream : {
         name : "Live",
         type : "LiveStream",
-         // Or '#yourElement' (optional)
+          // Or '#yourElement' (optional)
         target: document.querySelector('#yourElement') 
     },
     decoder : {
@@ -92,7 +102,5 @@ $(document).ready(function() {
     console.log("Initialization finished. Ready to start");
     Quagga.start();
 });
-      } 
-    };
-  });
-});
+      }
+}

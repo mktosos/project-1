@@ -1,13 +1,13 @@
 # project-1
-
 This project allows a user to search by product UPC to find pricing across various online marketplaces. The app can use usb a barcode scanner, keyboard input or the phone camera to input UPC numbers. The API from UPCitemdb.com enbles the item and marketplace data. Google maps API is also used to determine present location, which will give the user a location data point for each UPC scan. This feature will be handy in automatically recording where a specific item was scanned in store, when monitoring instore price drops and availability. A user validation function checks for correct UPC formatted numbers. 
 
-Firebase is used to record scan instances and location.
+Firebase is used to record scan instances and location and functions as a "history" of scans.
 
-The project originally was to be based around retailer APIs, target, walmart, amazon as a seller tool. Thoses specific APIs were not accessible for this student project, so scraping those sites was looked into. The non-object formatted data was not useful so I am using an API for a UPC barcode database. The app functions as more of a consumer price checker, than a resellers tool, in this 1st iteration.
+The project originally was to be based around retailer APIs from large retailers: target, walmart, and amazon, functioning as a seller tool. Thoses specific APIs were not accessible for this student project, so I looked into scraping those sites for data. The non-object formatted data was very tedious to parse so I am using an API for a UPC barcode database. The app functions as more of a consumer price checker, than a resellers tool, in this 1st iteration.
 
+The app initiates system file:/// alerts for googlemaps geolocation and use of the device's camera to scan barcodes. I know alerts are not allowed in this project, but these alerts are system security prompts, not coded and implemented by me.
 
-Credits The game project student developer is Mike Taniguchi.
+Credits: The game project student developer is Mike Taniguchi.
 
 License The MIT License (MIT)
 

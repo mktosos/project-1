@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!--script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" src="./assets/javascript/jquery.ajax-cross-origin.min.js"></script>
@@ -36,10 +36,7 @@
             <div id="map"></div>
         </div>
         <div id="history" class="box item4">
-            <div id="upc"></div>
-            <div id="title"></div>
-            <div id="location"></div>
-            <ul id="history"></ul> 
+            
             <div id="scanner-container"></div>
             
         </div>
@@ -134,7 +131,7 @@
                 timer = setTimeout(runSomething, 1000);
 
                 function runSomething() {
-                  doSomething(result.codeResult.code, []);
+                  mainFunction(result.codeResult.code, []);
                 }
             });
         }
@@ -146,6 +143,7 @@
                 $('canvas').hide();
 
             } else {
+                
                 $('video').show();
                 $('canvas').show();
                 startScanner();

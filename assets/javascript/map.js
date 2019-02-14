@@ -84,7 +84,6 @@ function initMap() {
         stylers: [{color: '#17263c'}]
       }
     ]
- 
   });
   infoWindow = new google.maps.InfoWindow;
  
@@ -95,13 +94,10 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      console.log(pos);
-
       infoWindow.setPosition(pos);
       infoWindow.setContent('Location found.');
       // infoWindow.open(map);
       map.setCenter(pos);
-
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });

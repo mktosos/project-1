@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project-1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
@@ -21,7 +22,6 @@
             <div id="startText2" class ="startText">Input manually or with USB scanner</div>
             <div id="startText3" class ="startText">Scan using your device camera</div>
             <table class="offers"></table>
-            
         </div>
         <div class="item1a"></div>
         <div class="item2">
@@ -44,7 +44,6 @@
     <!--guagga scanner script-->
     <script>
         var _scannerIsRunning = false;
-
         function startScanner() {
             Quagga.init({
                 inputStream: {
@@ -83,14 +82,11 @@
                     console.log(err);
                     return
                 }
-
                 console.log("Initialization finished. Ready to start");
                 Quagga.start();
-
                 // Set flag to is running
                 _scannerIsRunning = true;
             });
-
             Quagga.onProcessed(function (result) {
                 var drawingCtx = Quagga.canvas.ctx.overlay,
                 drawingCanvas = Quagga.canvas.dom.overlay;
@@ -104,11 +100,9 @@
                             Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
                         });
                     }
-
                     if (result.box) {
                         Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
                     }
-
                     if (result.codeResult && result.codeResult.code) {
                         Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
                     }
@@ -119,17 +113,6 @@
             Quagga.onDetected(function (result) {
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
                 $('#iBar').val(result.codeResult.code);
-
-                // var e = $.Event( "keypress", { which: 13 } );
-                // $('#iBar').trigger(e);
-
-                // clearTimeout(timer);
-                // timer = setTimeout(runSomething, 1000);
-
-                // function runSomething() {
-                //     window.mainFunction=mainFunction;
-                //   mainFunction(result.codeResult.code, []);
-                // }
             });
         }
         // Start/stop scanner
@@ -138,9 +121,7 @@
                 Quagga.stop();
                 $('video').hide();
                 $('canvas').hide();
-
             } else {
-                
                 $('video').show();
                 $('canvas').show();
                 startScanner();

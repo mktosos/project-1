@@ -91,7 +91,7 @@ function mainFunction(value, session){
             }
             console.log("res", res.items[0].offers[0].title);
             //populate history of upc searches list/field
-            $('#history').prepend("<li class='history'><a href='#' target='_blank'>"+upc+': '+res.items[0].offers[0].title+"</a></li>");
+            //$('#history').prepend("<li class='history'><a href='#' target='_blank'>"+upc+': '+res.items[0].offers[0].title+"</a></li>");
             //clear input field after 1sec
             setTimeout(function(){document.getElementById("iBar").value=""}, 1000);
             });

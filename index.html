@@ -41,10 +41,6 @@
             
         </div>
     </div>
-    
-    
-    <!-- Include the image-diff library -->
-    <script src="assets/javascript/quagga.min.js"></script>
     <!--guagga scanner script-->
     <script>
         var _scannerIsRunning = false;
@@ -124,15 +120,16 @@
                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
                 $('#iBar').val(result.codeResult.code);
 
-                var e = $.Event( "keypress", { which: 13 } );
-                $('#iBar').trigger(e);
+                // var e = $.Event( "keypress", { which: 13 } );
+                // $('#iBar').trigger(e);
 
-                clearTimeout(timer);
-                timer = setTimeout(runSomething, 1000);
+                // clearTimeout(timer);
+                // timer = setTimeout(runSomething, 1000);
 
-                function runSomething() {
-                  mainFunction(result.codeResult.code, []);
-                }
+                // function runSomething() {
+                //     window.mainFunction=mainFunction;
+                //   mainFunction(result.codeResult.code, []);
+                // }
             });
         }
         // Start/stop scanner
@@ -156,6 +153,6 @@
     </script>
     <script type='text/javascript' src='assets/javascript/map.js'></script>              
     <script type='text/javascript' src='assets/javascript/app.js'></script>
-    <!--<script type='text/javascript' src="assets/javascript/quagga.min.js"></script>    -->
+    <script type='text/javascript' src="assets/javascript/quagga.min.js"></script>    
 </body>
 </html>

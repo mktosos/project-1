@@ -84,8 +84,9 @@ function mainFunction(value, session){
               if(res.items[0].images[i] !== undefined){
               $('.startText').text("");
               $('#startText1').text(res.items[0].offers[0].title);
-              $('#startText2').text(upc);
-              $('.offers').prepend("<li><a href="+a+ " target='_blank'>"+res.items[0].offers[i].merchant + res.items[0].offers[i].price+"</a></li>");  
+              $('#startText2').text("UPC: "+upc);
+              $('#startText3').text("historical price range: $"+res.items[0].highest_recorded_price+" / $"+res.items[0].lowest_recorded_price);
+              $('.offers').prepend("<tr><td><a href="+a+ " target='_blank'>"+res.items[0].offers[i].merchant+"</a></td><td><a href="+a+ " target='_blank'> $"+res.items[0].offers[i].price+"</a></td></tr>");  
               $('.images').prepend("<a href="+a+" target='_blank'><img src="+res.items[0].images[i]+" height='70' alt=''></a>"); 
               }
             }

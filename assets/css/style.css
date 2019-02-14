@@ -43,6 +43,7 @@ body{
     overflow: scroll;
     text-align: center;
     padding: 20px;
+    color: black;
 }
 ul {
     list-style-type: none;
@@ -165,4 +166,24 @@ body {
     left: 30%;
     bottom: 10%;
     opacity: .70;
+}
+@media screen and (max-width: 600px) {
+    .item5{
+        grid-row: 6 / 7;
+    }
+    .item3{
+        grid-column: 8 / 12;
+    }
+    .wrapper{
+        grid-gap: 3px;
+        grid-template-rows: repeat(8, 117px);
+    }
+    .textBar{
+        font-size: 8px;
+    }
+    .item5 {
+        position: relative;
+        grid-column: 1 / 12;  
+        grid-row: 7 / 9;
+        padding: 0;
 }

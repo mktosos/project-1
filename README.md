@@ -1,8 +1,10 @@
 # project-1
-This project allows a user to search by product UPC to find pricing across various online marketplaces. The app can use usb a barcode scanner, keyboard input or the phone camera to input UPC numbers. The API from UPCitemdb.com gives access to the item and marketplace data. Google maps API is also used to determine present location. This feature will be handy in automatically recording where a specific item was scanned in store, when monitoring price drops and availability. A user validation function checks for correct UPC formatted numbers. Moment js is incorported to note present time. Firebase is used to store scan instances with date, location, and complete search result object. It functions as a "history" of scans.
+This project allows a user to search by product UPC to find pricing across various online marketplaces. The app can use usb a barcode scanner, keyboard input or the phone camera to input UPC numbers. The API from UPCitemdb.com gives access to the item and marketplace data. Google maps API is also used to determine present location. This feature will be handy in automatically recording where a specific item was scanned in store, when monitoring price drops and availability. A user validation function checks for correct UPC formatted numbers. Moment js is incorporated to note present time. Firebase is used to store scan instances with date, location, and complete search result object. It functions as a "history" of scans. Quagga javascript library extension uses the device camera to process barcodes in the browser.
 
 Known issues: 
 Camera will not restart once its been initiated and window closed. Web page will need to be restarted to use the camera function.
+
+Camera function not working on iphone...but works my samsung 9" tablet.
 
 The app initiates system file:/// alerts for googlemaps geolocation and use of the device's camera to scan barcodes. I know alerts are not allowed in this project, but these alerts are system security prompts, not coded and implemented by me.
 

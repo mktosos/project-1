@@ -11,12 +11,9 @@ var config = {
   storageBucket: "",
   messagingSenderId: "1001407996252"
 };
-
 firebase.initializeApp(config);
 var database = firebase.database();
 readFirebase(database);
-
-
 
 $(document).ready(function() {
 
@@ -54,45 +51,29 @@ $(document).ready(function() {
           $('.offers').text("");
           console.log(res);
         
-          // firebase reference key
-          database.ref().on('value', function(snapshot) {
-            event.preventDefault();
-            var keys = Object.keys(snapshot.val());
-            window.keys=keys; 
-            console.log('Number of scans in Firebase database='+ keys.length);
-            keyG=keys[keys.length-1]
-            console.log(keyG);
-          });
-         
-          //clear start screen populate offers with store/link and product images
-          for (let i = 0; i < res.items[0].offers.length; i++) {
-            var a =res.items[0].offers[i].link
-            if(res.items[0].images[i] !== undefined){
-            $('.startText').text("");
-            $('#startText1').text(res.items[0].offers[0].title);
-            $('#startText2').text("UPC: "+upc);
-            $('#startText3').text("historical price range: $"+res.items[0].highest_recorded_price+" / $"+res.items[0].lowest_recorded_price);
-            $('.offers').prepend("<tr><td><a href="+a+ " target='_blank'>"+res.items[0].offers[i].merchant+"</a></td><td><a href="+a+ " target='_blank'> $"+res.items[0].offers[i].price+"</a></td></tr>");  
-            $('.images').append("<a href="+a+" target='_blank'><img src="+res.items[0].images[i]+" height='70' alt=''></a>"); 
-            }
+        //clear start screen populate offers with store/link and product images
+        for (let i = 0; i < res.items[0].offers.length; i++) {
+          var a =res.items[0].offers[i].link
+          if(res.items[0].images[i] !== undefined){
+          $('.startText').text("");
+          $('#startText1').text(res.items[0].offers[0].title);
+          $('#startText2').text("UPC: "+upc);
+          $('#startText3').text("historical price range: $"+res.items[0].highest_recorded_price+" / $"+res.items[0].lowest_recorded_price);
+          $('.offers').prepend("<tr><td><a href="+a+ " target='_blank'>"+res.items[0].offers[i].merchant+"</a></td><td><a href="+a+ " target='_blank'> $"+res.items[0].offers[i].price+"</a></td></tr>");  
+          $('.images').append("<a href="+a+" target='_blank'><img src="+res.items[0].images[i]+" height='70' alt=''></a>"); 
           }
+        }
           console.log("res", res.items[0].offers[0].title);
            //push ajax resultObj to firebase
         setTimeout(function(){database.ref().push({
-          
-          refKey: keys[keys.length-1],
           resultObj: res,
           location: pos,
           date: date
           });
-          console.log(keys[keys.length-1]);
-          database.ref(keys[keys.length-1]).push({
-            refKey: keys[keys.length-1], 
-          })
-        }, 1000);
+        },1000);
         
           //clear input field after 1sec
-          setTimeout(function(){document.getElementById("iBar").value=""}, 1000);
+        setTimeout(function(){document.getElementById("iBar").value=""}, 1000);
           });
         }
         // console.log(session);
@@ -101,9 +82,6 @@ $(document).ready(function() {
     }
   
 });
-
-
-
 
 function readFirebase(database){
   //grab data from firebase database on value change or on page start to display
@@ -127,7 +105,6 @@ function someFunction(){
   var key = Object.keys(snapshot.val());
   console.log(key);
   var rootRef = firebase.database().ref();
-  console.log(rootRef);
 }
 
 //Google Maps
@@ -137,4 +114,14 @@ function initMap(coordinates) {
       document.getElementById('map'), {zoom: 12, center: coordinates});
   // The marker, positioned at coordinates given
   var marker = new google.maps.Marker({position: coordinates, map: map});
+  console.log("maps done!");
+}
+// firebase reference key
+function checkFirebase(){
+  database.ref().on('value', function(snapshot) {
+    var keys = Object.keys(snapshot.val());
+    window.keys=keys; 
+    console.log('Number of scans in Firebase database='+ keys.length);
+    console.log(keys[keys.length-1]);
+  });
 }
